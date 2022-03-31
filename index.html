@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<!-- Mirrored from github.uconn.edu/pages/yuh19027/dmd3475_scripting/final-project/ar-pokemon/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 05:42:14 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <title>AR Pokemon</title>
+  <link rel="stylesheet" href="../../../../../../cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&amp;display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- partial:index.partial.html -->
+<meta aframe-injected="" name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,shrink-to-fit=no,user-scalable=no,minimal-ui">
+<meta aframe-injected="" name="mobile-web-app-capable" content="yes">
+
+<script src="../../../../../../aframe.io/releases/0.7.0/aframe.min.js"></script>
+<script src="../../../../../../cdn.jsdelivr.net/gh/jeromeetienne/AR.js%401.5.0/aframe/build/aframe-ar.js"></script>
+
+<div class="AR-tip">
+	<p>To see AR Pokemon Characters, please use <a style="white-space: nowrap" class="links" target="_blank" href="https://www.google.ru/search?q=hiro+marker&amp;newwindow=1&amp;source=lnms&amp;tbm=isch&amp;sa=X&amp;ved=0ahUKEwiV97CF6LnXAhUHpqQKHSfEBSAQ_AUICigB&amp;biw=1676&amp;bih=855&amp;dpr=2">Hiro-marker.</a></p>
+	<p>Scan the marker with your webcam to render 3D Pokemons!</p>
+	<div class="gotit" href="#">Got it!</div>
+</div>
+<div class="btn-interact">
+	<div class="btn rotate"></div>
+	<div class="btn scale"></div>
+</div>
+
+<div class="btns-wrap">
+	
+	<button class="btn charmander">Charmander</button>
+	<button class="btn pikachu">Pikachu</button>
+	<button class="btn cubone">Cubone</button>
+	<button class="btn diglett">Diglett</button>
+	<button class="btn marill">Bizarro Marill</button>
+</div>
+
+<a-scene embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: false;' >
+	
+	<a-assets>
+		<a-asset-item id="london-obj" src="imgs/charmander.tgif"></a-asset-item>
+		<a-asset-item id="london-mtl" src="imgs/charmander.mtl"></a-asset-item>
+		<a-asset-item id="kyiv-obj" src="imgs/pikachu.tgif"></a-asset-item>
+		<a-asset-item id="kyiv-mtl" src="imgs/pikachu.mtl"></a-asset-item>
+		<a-asset-item id="cubone-obj" src="imgs/cubone.obj"></a-asset-item>
+		<a-asset-item id="cubone-mtl" src="imgs/cubone.mtl"></a-asset-item>
+		<a-asset-item id="diglett-obj" src="imgs/diglett.tgif"></a-asset-item>
+		<a-asset-item id="diglett-mtl" src="imgs/diglett.mtl"></a-asset-item>
+		<a-asset-item id="marill-obj" src="imgs/marill.tgif"></a-asset-item>
+		<a-asset-item id="marill-mtl" src="imgs/marill.mtl"></a-asset-item>
+	</a-assets>
+
+	<a-marker preset="hiro" id="aframe-scene">
+		
+		<a-entity light="type: hemisphere; color: #fefddd; groundColor: #fefddd; intensity: 1.2"></a-entity>
+		
+		<a-entity id="london" rotation="0 180 0" side="double" position="0.0 0.2 0" scale="0.5 0.5 0.5" obj-model="obj: #london-obj; mtl: #london-mtl">
+			<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="3000" fill="forwards" to="0 -180 0" repeat="indefinite" easing="linear">
+			</a-animation>
+		</a-entity>
+		
+		<a-entity id="kyiv" visible="false" rotation="0 180 0" side="double" position="0.0 0.2 0" scale="0.5 0.5 0.5" obj-model="obj: #kyiv-obj; mtl: #kyiv-mtl">
+			<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="3000" fill="forwards" to="0 -180 0" repeat="indefinite" easing="linear">
+			</a-animation>
+		</a-entity>
+
+		<a-entity id="cubone" visible="false" rotation="0 180 0" side="double" position="0.0 0.2 0" scale="0.7 0.7 0.7" obj-model="obj: #cubone-obj; mtl: #cubone-mtl">
+			<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="3000" fill="forwards" to="0 -180 0" repeat="indefinite" easing="linear">
+			</a-animation>
+		</a-entity>
+
+		<a-entity id="diglett" visible="false" rotation="0 150 0" side="double" position="0.0 0.2 0" scale="0.5 0.5 0.5" obj-model="obj: #diglett-obj; mtl: #diglett-mtl">
+			<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="3000" fill="forwards" to="0 -150 0" repeat="indefinite" easing="linear">
+			</a-animation>
+		</a-entity>
+		
+		<a-entity id="marill" visible="false" rotation="0 -90 0" side="double" position="0.0 0.2 0" scale="0.7 0.7 0.7" obj-model="obj: #marill-obj; mtl: #marill-mtl">
+			<a-animation attribute="rotation" begin="rotate" end="endRotate" dur="3000" fill="forwards" to="0 -450 0" repeat="indefinite" easing="linear">
+			</a-animation>
+		</a-entity>
+	
+	</a-marker>
+	
+	<a-entity camera></a-entity>
+	
+</a-scene>
+<!-- partial -->
+  <script src='../../../../../../cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script><script  src="script.js"></script>
+
+</body>
+
+<!-- Mirrored from github.uconn.edu/pages/yuh19027/dmd3475_scripting/final-project/ar-pokemon/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 31 Mar 2022 05:43:53 GMT -->
+</html>
